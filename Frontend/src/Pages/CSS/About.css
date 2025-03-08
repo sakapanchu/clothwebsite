@@ -1,0 +1,19 @@
+.about-page {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .about-page h1 {
+    font-size: 36px;
+    color: #f7418f;
+    margin-bottom: 20px;
+  }
+  
+  .about-page p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }

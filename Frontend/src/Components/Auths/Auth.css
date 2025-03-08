@@ -1,0 +1,144 @@
+/* Auth.css */
+
+/* Background and Container */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background: url("../Assets/auth-bg.jpg") no-repeat center center/cover;
+  padding: 20px;
+}
+
+/* Form Styling */
+.auth-form {
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.auth-form h2 {
+  color: #f7418f; /* Pink accent color */
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* Input Fields */
+.input-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.input-group input {
+  width: 90%;
+  padding: 12px 15px 12px 45px; /* Adjusted padding to make space for the icon */
+  border: 1px solid #e3e3e3;
+  border-radius: 50px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #f7418f;
+}
+
+.input-group input::placeholder {
+  color: #ccc;
+}
+
+/* Input Icons */
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #f4c5d9;
+  font-size: 1.2rem;
+}
+
+/* Button Styling */
+.auth-form button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 50px;
+  background: #f7418f;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.auth-form button:hover {
+  background: #ff6b9d;
+  transform: translateY(-3px);
+}
+
+/* Error Message */
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+/* Link Styling */
+.auth-link {
+  color: #333;
+  font-size: 0.9rem;
+  margin-top: 20px;
+}
+
+.auth-link a {
+  color: #f7418f;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .auth-form {
+    padding: 30px;
+  }
+
+  .auth-form h2 {
+    font-size: 1.8rem;
+  }
+
+  .input-group input {
+    padding: 10px 15px 10px 40px; /* Adjusted padding for smaller screens */
+  }
+
+  .auth-form button {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-form {
+    padding: 20px;
+  }
+
+  .auth-form h2 {
+    font-size: 1.5rem;
+  }
+
+  .input-group input {
+    padding: 8px 12px 8px 35px; /* Adjusted padding for smaller screens */
+  }
+
+  .auth-form button {
+    padding: 8px;
+  }
+}

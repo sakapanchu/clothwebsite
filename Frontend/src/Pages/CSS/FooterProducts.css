@@ -1,0 +1,40 @@
+.products-page {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .products-page h1 {
+    font-size: 36px;
+    color: #f7418f;
+    margin-bottom: 20px;
+  }
+  
+  .products-page p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .product-categories {
+    margin-top: 30px;
+  }
+  
+  .product-categories h2 {
+    font-size: 24px;
+    color: #f7418f;
+    margin-bottom: 15px;
+  }
+  
+  .product-categories ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .product-categories li {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+  }
