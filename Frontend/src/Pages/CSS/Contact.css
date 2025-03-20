@@ -1,54 +1,160 @@
+/* General Styles */
 .contact-page {
-    max-width: 800px;
-    margin: 50px auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #efdcdc, #ffffff); /* Subtle gradient background */
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  overflow: hidden;
+  position: relative;
+  margin-top: 40px;
+}
+
+/* Background Animation */
+.contact-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1949&q=80') no-repeat center center/cover; /* Fashion-related background image */
+  opacity: 0.1; /* Subtle background image */
+  z-index: -1;
+}
+
+/* Content Styles */
+.contact-content {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  padding: 40px;
+  border-radius: 10px;
+  animation: fadeIn 1.5s ease-in-out; /* Fade-in animation */
+}
+
+.contact-page h1 {
+  font-size: 42px;
+  color: #f7418f;
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif; /* Professional font */
+  animation: slideIn 1s ease-in-out; /* Slide-in animation */
+}
+
+.contact-page p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif; /* Modern font */
+  animation: fadeInUp 1s ease-in-out; /* Fade-in and slide-up animation */
+}
+
+/* Contact Form Styles */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 100px;
+  animation: fadeInUp 1s ease-in-out; /* Fade-in and slide-up animation */
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #f7418f;
+  box-shadow: 0 0 5px rgba(247, 65, 143, 0.5);
+  outline: none;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  background-color: #f7418f;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  width: 50%;
+  display: grid;
+  margin-left: 25%;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #ff6b9d;
+  transform: translateY(-2px); /* Lift button on hover */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-page {
+    padding: 30px 15px;
+  }
+
+  .contact-content {
     padding: 20px;
-    text-align: center;
   }
-  
+
   .contact-page h1 {
-    font-size: 36px;
-    color: #f7418f;
-    margin-bottom: 20px;
+    font-size: 32px;
   }
-  
+
   .contact-page p {
-    font-size: 18px;
-    color: #333;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    font-size: 16px;
   }
-  
+
   .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 500px;
-    margin: 0 auto;
+    max-width: 100%;
   }
-  
-  .contact-form input,
-  .contact-form textarea {
-    padding: 10px;
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .contact-form textarea {
-    resize: vertical;
-  }
-  
-  .contact-form button {
-    padding: 10px 20px;
-    background-color: #f7418f;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .contact-form button:hover {
-    background-color: #ff6b9d;
-  }
+}

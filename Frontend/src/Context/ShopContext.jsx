@@ -15,12 +15,17 @@ const ShopContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(getDefaultCart());
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Authentication state
   const [users, setUsers] = useState([]); // List of registered users
+  const [loggedInUser, setLoggedInUser] = useState(null);
 
   // Check local storage for login state on initial load
   useEffect(() => {
     const loggedInUser = localStorage.getItem("loggedInUser");
     if (loggedInUser) {
       setIsLoggedIn(true);
+      setLoggedInUser(JSON.parse(loggedInUser));
+    }else {
+      setIsLoggedIn(false); // Ensure isLoggedIn is false if no user is logged in
+      setLoggedInUser(null);
     }
   }, []);
 
@@ -52,7 +57,9 @@ const ShopContextProvider = ({ children }) => {
     const user = users.find((u) => u.email === email && u.password === password);
     if (user) {
       setIsLoggedIn(true);
+      setLoggedInUser(user);
       localStorage.setItem("loggedInUser", JSON.stringify(user)); // Save login state
+      console.log("Logged-In User:", user); 
       return true;
     }
     return false;
@@ -60,6 +67,7 @@ const ShopContextProvider = ({ children }) => {
 
   const logoutUser = () => {
     setIsLoggedIn(false);
+    setLoggedInUser(null); 
     localStorage.removeItem("loggedInUser"); // Clear login state
     setCartItems(getDefaultCart()); // Clear the cart on logout
   };
@@ -77,6 +85,7 @@ const ShopContextProvider = ({ children }) => {
     setUsers,
     loginUser,
     logoutUser,
+    loggedInUser,
   };
 
   return (

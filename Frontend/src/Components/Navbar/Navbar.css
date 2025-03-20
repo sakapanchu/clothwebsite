@@ -21,6 +21,7 @@
 .nav-logo img {
   width: 50px;
   height: auto;
+  cursor: pointer; /* Add cursor pointer for logo */
 }
 
 .nav-menu ul {
@@ -100,10 +101,10 @@
   border-radius: 10px;
   transition: background 0.3s ease;
   margin-right: 25px;
-  border:2px solid lightpink;
+  border: 2px solid lightpink;
   box-sizing: border-box;
-  width:100px;
-  
+  width: 100px;
+  font-size: 16px;
 }
 
 .nav-link:hover {
@@ -119,6 +120,7 @@
   border-radius: 5px;
   cursor: pointer;
   font-weight: 500;
+  font-size: 16px;
 }
 
 .logout-button:hover {
@@ -139,17 +141,18 @@
   color: white;
 }
 
+/* Hamburger Menu Styles */
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
   .nav-menu ul {
     display: none;
-  }
-
-  .nav-hamburger {
-    display: block;
-  }
-
-  .nav-menu.visible ul {
-    display: flex;
     flex-direction: column;
     position: absolute;
     top: 60px;
@@ -157,5 +160,28 @@
     width: 100%;
     background: var(--background-color);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+  }
+
+  .nav-menu.visible ul {
+    display: flex;
+  }
+
+  .hamburger-menu {
+    display: block;
+    margin-left:10px ;
+  }
+
+  .nav-search {
+    margin-left: auto; /* Push search bar to the right */
+  }
+
+  .nav-login-cart {
+    gap: 10px; /* Reduce gap for smaller screens */
+    margin-left: 20px;
+  }
+
+  .nav-link {
+    margin-right: 0; /* Remove margin for smaller screens */
   }
 }

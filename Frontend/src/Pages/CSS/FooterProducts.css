@@ -1,40 +1,139 @@
+/* General Styles */
 .products-page {
-    max-width: 800px;
-    margin: 50px auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #efdcdc, #ffffff); /* Subtle gradient background */
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  overflow: hidden;
+  position: relative;
+  margin-top: 40px;
+}
+
+/* Background Animation */
+.products-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1949&q=80') no-repeat center center/cover; /* Fashion-related background image */
+  opacity: 0.1; /* Subtle background image */
+  z-index: -1;
+}
+
+/* Content Styles */
+.products-content {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  padding: 40px;
+  border-radius: 10px;
+  animation: fadeIn 1.5s ease-in-out; /* Fade-in animation */
+}
+
+.products-page h1 {
+  font-size: 42px;
+  color: #f7418f;
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif; /* Professional font */
+  animation: slideIn 1s ease-in-out; /* Slide-in animation */
+}
+
+.products-page p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif; /* Modern font */
+  animation: fadeInUp 1s ease-in-out; /* Fade-in and slide-up animation */
+}
+
+/* Product Categories Styles */
+.product-categories {
+  margin-top: 30px;
+  animation: fadeInUp 1s ease-in-out; /* Fade-in and slide-up animation */
+}
+
+.product-categories h2 {
+  font-size: 24px;
+  color: #f7418f;
+  margin-bottom: 15px;
+  font-family: 'Playfair Display', serif;
+}
+
+.product-categories ul {
+  list-style: none;
+  padding: 0;
+}
+
+.product-categories li {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.product-categories li:hover {
+  color: #f7418f; /* Change color on hover */
+  transform: translateX(10px); /* Move text slightly to the right on hover */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .products-page {
+    padding: 30px 15px;
+  }
+
+  .products-content {
     padding: 20px;
-    text-align: center;
   }
-  
+
   .products-page h1 {
-    font-size: 36px;
-    color: #f7418f;
-    margin-bottom: 20px;
+    font-size: 32px;
   }
-  
+
   .products-page p {
-    font-size: 18px;
-    color: #333;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    font-size: 16px;
   }
-  
-  .product-categories {
-    margin-top: 30px;
-  }
-  
-  .product-categories h2 {
-    font-size: 24px;
-    color: #f7418f;
-    margin-bottom: 15px;
-  }
-  
-  .product-categories ul {
-    list-style: none;
-    padding: 0;
-  }
-  
+
   .product-categories li {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 10px;
+    font-size: 16px;
   }
+}

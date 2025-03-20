@@ -9,16 +9,21 @@ import { FaSearch, FaBars } from 'react-icons/fa';
 const Navbar = () => {
   const [menu, setMenu] = useState('shop');
   const [searchQuery, setSearchQuery] = useState('');
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for responsive menu
   const { getTotalCartItems, isLoggedIn, setIsLoggedIn } = useContext(ShopContext);
   const navigate = useNavigate();
 
   const handleMenuClick = (menuItem) => {
     setMenu(menuItem);
+    setIsMenuOpen(false); // Close the menu after selecting an item
   };
 
   const handleSearch = (e) => {
     e.preventDefault();
+    // Filter logic based on searchQuery
     console.log('Search Query:', searchQuery);
+    // Example: Navigate to a filtered page or update state
+    navigate(`/search?query=${searchQuery}`);
   };
 
   const handleLogout = () => {
@@ -26,12 +31,23 @@ const Navbar = () => {
     navigate('/'); // Redirect to home page
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen); // Toggle menu visibility
+  };
+
   return (
     <div className="navbar">
-      <div className="nav-logo">
+      <div className="nav-logo" onClick={() => navigate('/')}>
         <img src={logo1} alt="Logo" />
       </div>
-      <div className="nav-menu">
+
+      {/* Hamburger Menu for Small Screens */}
+      <div className="hamburger-menu" onClick={toggleMenu}>
+        <FaBars />
+      </div>
+
+      {/* Responsive Menu */}
+      <div className={`nav-menu ${isMenuOpen ? 'visible' : ''}`}>
         <ul>
           {['shop', 'frocks', 'topskirts', 'pants'].map((item) => (
             <li
@@ -47,6 +63,7 @@ const Navbar = () => {
           ))}
         </ul>
       </div>
+
       <div className="nav-search">
         <form onSubmit={handleSearch}>
           <input
@@ -60,18 +77,16 @@ const Navbar = () => {
           </button>
         </form>
       </div>
+
       <div className="nav-login-cart">
-        {!isLoggedIn ? (
-          <>
-          <Link to="/login" className="nav-link">
-            Login
-          </Link>
-          <Link to="/signup" className="nav-link">
-            Sign Up
-          </Link>
-        </>
-          
-        ) : (
+        <Link to="/login" className="nav-link">
+          Login
+        </Link>
+        <Link to="/signup" className="nav-link">
+          Sign Up
+        </Link>
+
+        {isLoggedIn && (
           <button onClick={handleLogout} className="logout-button">
             Logout
           </button>

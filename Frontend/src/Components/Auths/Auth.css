@@ -1,4 +1,4 @@
-/* Auth.css */
+
 
 /* Background and Container */
 .auth-container {
@@ -14,42 +14,50 @@
 /* Form Styling */
 .auth-form {
   background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-  padding: 40px;
+  padding: 20px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   text-align: center;
 }
 
 .auth-form h2 {
   color: #f7418f; /* Pink accent color */
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 /* Input Fields */
 .input-group {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   position: relative;
 }
 
-.input-group input {
+.input-group input,.input-group select  {
   width: 90%;
-  padding: 12px 15px 12px 45px; /* Adjusted padding to make space for the icon */
+  padding: 10px 15px 10px 40px; /* Adjusted padding to make space for the icon */
   border: 1px solid #e3e3e3;
   border-radius: 50px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   outline: none;
   transition: border-color 0.3s ease;
 }
 
-.input-group input:focus {
+.input-group select {
+  width:100%;
+}
+
+.input-group input:focus, .input-group select:focus {
   border-color: #f7418f;
 }
 
 .input-group input::placeholder {
+  color: #ccc;
+}
+
+.input-group select::option {
   color: #ccc;
 }
 
@@ -60,17 +68,36 @@
   left: 15px;
   transform: translateY(-50%);
   color: #f4c5d9;
-  font-size: 1.2rem;
+  font-size: 1rem;
+}
+
+.input-group select {
+  appearance: none; /* Remove default arrow */
+  background-color: white;
+  cursor: pointer;
+}
+
+.input-group select option {
+  padding: 10px;
+}
+
+.input-row {
+  display: flex;
+  gap: 10px; /* Space between the two fields */
+}
+
+.input-row .input-group {
+  flex: 1; /* Each field takes equal space */
 }
 
 /* Button Styling */
 .auth-form button {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   border-radius: 50px;
   background: #f7418f;
   color: white;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
   border: none;
   cursor: pointer;
@@ -85,15 +112,15 @@
 /* Error Message */
 .error-message {
   color: red;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   margin-bottom: 10px;
 }
 
 /* Link Styling */
 .auth-link {
   color: #333;
-  font-size: 0.9rem;
-  margin-top: 20px;
+  font-size: 0.8rem;
+  margin-top: 15px;
 }
 
 .auth-link a {
@@ -109,36 +136,41 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .auth-form {
-    padding: 30px;
+    padding: 15px;
   }
 
   .auth-form h2 {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
   }
 
-  .input-group input {
-    padding: 10px 15px 10px 40px; /* Adjusted padding for smaller screens */
+  .input-group input,.input-group select  {
+    padding: 8px 12px 8px 35px;/* Adjusted padding for smaller screens */
   }
 
   .auth-form button {
-    padding: 10px;
+    padding: 8px;
   }
 }
 
 @media (max-width: 480px) {
   .auth-form {
-    padding: 20px;
+    padding: 10px;
   }
 
   .auth-form h2 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
-  .input-group input {
-    padding: 8px 12px 8px 35px; /* Adjusted padding for smaller screens */
+  .input-group input,.input-group select {
+    padding: 6px 10px 6px 30px; /* Adjusted padding for smaller screens */
   }
 
   .auth-form button {
-    padding: 8px;
+    padding: 6px;
+  }
+
+  .input-row {
+    flex-direction: column; /* Stack fields vertically on small screens */
+    gap: 15px;
   }
 }
